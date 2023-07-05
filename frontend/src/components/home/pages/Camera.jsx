@@ -1,8 +1,8 @@
+import React from 'react';
+
 const Camera = () => {
   return (
-    <div>
-      CAMERA
-    </div>
+    <span className="fs-1">Камера</span>
   );
 };
 

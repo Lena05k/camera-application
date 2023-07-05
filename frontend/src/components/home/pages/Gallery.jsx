@@ -1,8 +1,8 @@
+import React from 'react';
+
 const Gallery = () => {
   return (
-    <div>
-      GALLERY
-    </div>
+    <span className="fs-1">Галерея</span>
   );
 };
 

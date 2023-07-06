@@ -9,14 +9,14 @@ import routes from '../routes';
 import Home from './home/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../index.css';
+import Camera from "./home/pages/Camera";
 
 const App = () => (
   <Router>
-    <div className="d-flex flex-column h-100">
+    <div className="container-fluid h-100">
       <Routes>
-        <Route path={routes.root()}>
-          <Route path={routes.home()} element={<Home />} />
-        </Route>
+        <Route path={routes.root()} element={<Home />} />
+        <Route path={routes.camera()} element={<Camera />} />
       </Routes>
     </div>
   </Router>

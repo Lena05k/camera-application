@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Gallery = () => {
+const GalleryPage = () => {
   return (
     <span className="fs-1">Галерея</span>
   );
 };
 
-export default Gallery;
+export default GalleryPage;

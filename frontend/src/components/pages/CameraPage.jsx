@@ -6,9 +6,9 @@ import {
   Col,
 } from 'react-bootstrap';
 import '../../styles/index.css';
-import Header from '../home/Header';
+import Header from './Header';
 
-const Camera = () => {
+const CameraPage = () => {
 
   return (
     <Container fluid className="h-100 overflow-hidden">
@@ -52,4 +52,4 @@ const Camera = () => {
   );
 };
 
-export default Camera;
+export default CameraPage;

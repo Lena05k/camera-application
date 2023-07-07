@@ -4,19 +4,19 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import routes from '../routes';
+import routes from './routes/routes';
 // import 'react-toastify/dist/ReactToastify.css';
-import Home from './home/Home';
+import MainPage from './pages/MainPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../index.css';
-import Camera from "./home/pages/Camera";
+import '../styles/index.css';
+import CameraPage from './pages/CameraPage';
 
 const App = () => (
   <Router>
-    <div className="container-fluid h-100">
+    <div className="h-100">
       <Routes>
-        <Route path={routes.root()} element={<Home />} />
-        <Route path={routes.camera()} element={<Camera />} />
+        <Route path={routes.root()} element={<MainPage />} />
+        <Route path={routes.camera()} element={<CameraPage />} />
       </Routes>
     </div>
   </Router>

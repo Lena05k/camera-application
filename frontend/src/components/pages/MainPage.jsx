@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const MainPage = () => {
   return (
     <div className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
       <Card className="col-12 col-md-8 col-xxl-6 ">
@@ -23,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainPage;

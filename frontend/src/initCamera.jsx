@@ -1,5 +1,5 @@
 import App from './components/App';
-import { ApiContext } from './contexts/index';
+import { ApiContext } from './core/contexts/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const initCamera = async () => {

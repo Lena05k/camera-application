@@ -21,20 +21,18 @@ const Menu = () => {
       </div>
       <nav className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
         <ul className="nav-menu-items">
-          <li className="navbar-toggle" onClick={toggleMenu}>
-            <Link to="#" className="menu-bars text-white">
-              <AiIcons.AiOutlineClose />
-            </Link>
-          </li>
-          {SidebarData.map((item, index) => {
-            return (
-              <li key={index} className={item.cssName}>
-                <Link to={item.path} className={item.cssText}>
-                  <span>{item.title}</span>
+          <Link to="#" className="menu-bars text-white">
+            <AiIcons.AiOutlineClose />
+          </Link>
+          {
+            SidebarData.map((item) => (
+              <li className={item.cssName} key={item.id}>
+                <Link to="#" className={item.cssText} key={item.id}>
+                  <span className="sidebar-item-title">{item.title}</span>
                 </Link>
               </li>
-            );
-          })}
+            ))
+          }
         </ul>
       </nav>
     </>

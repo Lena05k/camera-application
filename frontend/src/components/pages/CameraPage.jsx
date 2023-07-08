@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   Container,
   Row,
   Col,
 } from 'react-bootstrap';
+import * as SlIcons from 'react-icons/sl';
+import ButtonCard from './ButtonCard';
 import '../../styles/index.css';
 import Header from './Header';
 
@@ -18,6 +20,18 @@ const CameraPage = () => {
         {/* Камера */}
         <Col xs={9} className="p-0">
           <div className="position-relative min-vh-100 min-vw-100 bg-black h-100">
+            <div className="position-absolute start-0 ms-5 mt-5">
+              <div className="d-flex flex-column mt-5" style={{ height: '500px' }}>
+                <div className="bd-highlight mb-auto">
+                  <ButtonCard />
+                </div>
+                <div className="bd-highlight">
+                  <Button variant="outline-light">
+                    <SlIcons.SlMagnifierAdd className="fs-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
             <div className="position-absolute top-50 end-0 d-flex flex-column me-3">
               <div className="d-flex flex-row">
                 <div className="d-flex align-self-center rounded-circle border border-1 border-white" style={{ width: '120px', height: '120px' }}>
@@ -39,8 +53,7 @@ const CameraPage = () => {
                     viewBox="0 0 16 16"
                   >
                     <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                    <path
-                      d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                    <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
                   </svg>
                 </Button>
               </div>

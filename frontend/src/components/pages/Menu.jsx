@@ -8,20 +8,18 @@ import '../../styles/Navbar.css';
 const Menu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!isMenuOpen);
 
   return (
     <>
       <div className="navbar">
-        <Link to="#" className="menu-bars text-white" onClick={toggleMenu}>
+        <Link onClick={toggleMenu} to="#" className="menu-bars text-white">
           <FaIcons.FaBars />
         </Link>
       </div>
       <nav className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
         <ul className="nav-menu-items">
-          <Link to="#" className="menu-bars text-white">
+          <Link onClick={toggleMenu} to="#" className="menu-bars navbar-toggle  text-white pe-3">
             <AiIcons.AiOutlineClose />
           </Link>
           {

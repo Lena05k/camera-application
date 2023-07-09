@@ -19,8 +19,8 @@ const Menu = () => {
       </div>
       <nav className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
         <ul className="nav-menu-items">
-          <Link onClick={toggleMenu} to="#" className="menu-bars navbar-toggle  text-white pe-3">
-            <AiIcons.AiOutlineClose />
+          <Link onClick={toggleMenu} to="#" className="menu-bars navbar-toggle text-white pe-3">
+              <AiIcons.AiOutlineClose />
           </Link>
           {
             SidebarData.map((item) => (

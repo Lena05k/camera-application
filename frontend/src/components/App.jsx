@@ -13,12 +13,10 @@ import CameraPage from './pages/CameraPage';
 
 const App = () => (
   <Router>
-    <div className="h-100">
       <Routes>
         <Route path={routes.root()} element={<MainPage />} />
         <Route path={routes.camera()} element={<CameraPage />} />
       </Routes>
-    </div>
   </Router>
 );
 

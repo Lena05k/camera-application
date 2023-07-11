@@ -1,42 +1,33 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import '../../styles/index.css';
 import Header from './Header';
 import BlockMap from './BlockMap';
-import ButtonGallery from '../UI/button/ButtonGallery';
 import BlockWeather from './BlockWeather';
-import '../../styles/video.css';
+import Defects from '../UI/Defects';
+import ButtonGallery from '../UI/button/ButtonGallery';
+import powerSupplySupport from '../../assets/original-1ud8.jpg';
+
+
 
 const CameraPage = () => {
-  const videoRef = useRef(null);
-  const getVideo = () => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-      })
-      .then((stream) => {
-        let video = videoRef.current;
-        video.srcObject = stream;
-        video.play();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getVideo();
-  }, [videoRef]);
+  // const videoRef = useRef(null);
 
   return (
     <div className="overflow-hidden">
       <Header />
       <div className="h-100">
-        <video
-          className="position-fixed w-100 h-100 p-0 start-0 end-0 top-0 bottom-0 object-fit-cover"
-          ref={videoRef}
-          autoPlay
-        />
+
+        {/*<video*/}
+        {/*  className="position-fixed w-100 h-100 p-0 start-0 end-0 top-0 bottom-0 object-fit-cover"*/}
+        {/*  ref={videoRef}*/}
+        {/*  autoPlay*/}
+        {/*/>*/}
+
+        <img className="position-fixed w-100 h-100 p-0 start-0 end-0 top-0 bottom-0 object-fit-fill" src={powerSupplySupport} alt="power supply support" />
+        <div className="position-absolute w-100 h-100 mx-auto overflow-hidden object-fit-cover">
+          <Defects />
+        </div>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
           <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
             <BlockWeather />

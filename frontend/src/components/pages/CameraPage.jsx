@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import '../../styles/index.css';
 import Header from './Header';
 import BlockMap from './BlockMap';
 import BlockWeather from './BlockWeather';
 import Defects from '../UI/Defects';
+import ButtonCamera from '../UI/button/ButtonCamera';
+import ButtonPhoto from '../UI/button/ButtonPhoto';
+import ButtonVideo from '../UI/button/ButtonVideo';
 import ButtonGallery from '../UI/button/ButtonGallery';
+import '../../styles/index.css';
 import powerSupplySupport from '../../assets/original-1ud8.jpg';
-
-
 
 const CameraPage = () => {
   // const videoRef = useRef(null);
@@ -36,28 +36,10 @@ const CameraPage = () => {
         </div>
         <div className="position-absolute top-50 end-0 d-flex flex-column me-3">
           <div className="d-flex flex-row">
-            <div
-              className="d-flex align-self-center rounded-circle border border-1 border-white"
-              style={{ width: '120px', height: '120px' }}
-            >
-              <Button
-                className="align-self-center ms-2 rounded-circle bg-white border border-2"
-                style={{ width: '100px', height: '100px' }}
-              />
-            </div>
+            <ButtonCamera />
             <div className="d-flex flex-column top-50 end-0 ms-3">
-              <Button
-                variant="link"
-                className="text-end text-center mb-4 btn text-white link-offset-2 link-underline link-underline-opacity-0"
-              >
-                ФОТО
-              </Button>
-              <Button
-                variant="link"
-                className="text-end text-center mt-4 btn text-white link-offset-2 link-underline link-underline-opacity-0"
-              >
-                ВИДЕО
-              </Button>
+              <ButtonPhoto />
+              <ButtonVideo />
             </div>
           </div>
           <ButtonGallery />

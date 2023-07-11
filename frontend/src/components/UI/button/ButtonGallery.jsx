@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ButtonGallery = () => (
   <div className="align-self-start ms-4">
     <Link to="/gallery">
-      <Button variant="outline-light" className="btn mt-5 rounded border border-2">
+      <Button variant="outline-light" className="btn mt-5 rounded border border-2 bg-opacity-50 bg-secondary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"

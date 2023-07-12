@@ -7,6 +7,7 @@ import Defects from '../UI/Defects';
 import ButtonCamera from '../UI/button/ButtonCamera';
 import '../../styles/index.css';
 import powerSupplySupport from '../../assets/original-1ud8.jpg';
+import ButtonGallery from "../UI/button/ButtonGallery";
 
 const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);
@@ -36,6 +37,7 @@ const CameraPage = () => {
             </div>
             <BlockShooting />
           </div>
+          <ButtonGallery />
         </div>
       </div>
     </div>

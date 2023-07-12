@@ -1,77 +1,51 @@
-import { Spinner } from 'react-bootstrap';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import * as FaIcons from 'react-icons/fa';
 
-const Defects = () => (
-  <>
-    <div className="position-absolute top-50  d-flex flex-column" style={{ left: '330px' }}>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-      <div className="d-flex flex-row">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-      </div>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
+const Defects = () => {
+  const [positions, setPositions] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newPositions = [];
+      for (let i = 0; i < 16; i += 1) {
+        const x = Math.floor(Math.random() * 800) + 400;
+        const y = Math.floor(Math.random() * 800) + 100;
+        newPositions.push({ x, y });
+      }
+      setPositions(newPositions);
+    }, 500);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return (
+    <div className="position-relative">
+      {positions.map((position, index) => (
+        <div
+          key={index}
+          className="position-absolute d-flex flex-column"
+          style={{ top: `${position.y}px`, left: `${position.x}px` }}
+        >
+          <div className="d-flex flex-row justify-content-center align-items-center">
+            <FaIcons.FaCircle className="fs-3 text-danger" />
+            <FaIcons.FaCircle className="fs-4 text-danger" />
+          </div>
+          <div className="d-flex flex-row">
+            <FaIcons.FaCircle className="fs-3 text-danger" />
+            <FaIcons.FaCircle className="fs-4 text-danger" />
+            <FaIcons.FaCircle className="fs-2 text-danger" />
+          </div>
+          <div className="d-flex flex-row justify-content-center align-items-center">
+            <FaIcons.FaCircle className="fs-1 text-danger" />
+            <FaIcons.FaCircle className="fs-2 text-danger" />
+            <FaIcons.FaCircle className="fs-4 text-danger" />
+          </div>
+        </div>
+      ))}
     </div>
-    <div className="position-absolute top-50  d-flex flex-column" style={{ right: '310px' }}>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-      <div className="d-flex flex-row">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-      </div>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-    </div>
-    <div className="position-absolute d-flex flex-column" style={{ top: '380px', left: '462px' }}>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-      <div className="d-flex flex-row">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-      </div>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-    </div>
-    <div className="position-absolute d-flex flex-column" style={{ top: '270px', right: '530px' }}>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-      <div className="d-flex flex-row">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-      </div>
-      <div className="d-flex flex-row justify-content-center align-items-center">
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-        <Spinner animation="grow" variant="danger" className="fs-3" />
-        <Spinner animation="grow" variant="danger" className="fs-3" size="sm" />
-      </div>
-    </div>
-  </>
-);
+  );
+};
 
 export default Defects;

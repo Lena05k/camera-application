@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 const MainPage = () => {
   return (
     <div className="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-      <Card className="col-12 col-md-8 col-xxl-6" style={{ background: '#212529' }}>
+      <Card className="bg-black">
         <Card.Body className="col p-5 text-center">
           <Link to="/camera" variant="outline-primary justify-content-center">
-            <Button variant="secondary" className="m-2 fs-1 p-5">
+            <Button variant="outline-light" className="p-5 m-2 me-2 fs-1">
               Камера
             </Button>
           </Link>
-          <Link to="/gallery" variant="outline-primary justify-content-center align-items-center">
-            <Button variant="secondary" className="p-5 m-2 fs-1">
+          <Link to="/gallery" variant="outline-primary  align-items-center">
+            <Button variant="outline-light" className="p-5 m-2 ms-2 fs-1">
               Галерея
             </Button>
           </Link>

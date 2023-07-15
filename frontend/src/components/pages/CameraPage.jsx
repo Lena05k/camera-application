@@ -2,16 +2,21 @@ import React, { useState } from 'react';
 import Header from './Header';
 import BlockMap from '../blocks/BlockMap';
 import BlockWeather from '../blocks/BlockWeather';
-import BlockShooting from '../blocks/BlockShooting';
 import Defects from '../UI/Defects';
 import ButtonCamera from '../UI/button/ButtonCamera';
+import ButtonGallery from '../UI/button/ButtonGallery';
+import BlockShooting from '../blocks/BlockShooting';
 import '../../styles/index.css';
+import '../../styles/blockCamera.css';
 import powerSupplySupport from '../../assets/original-1ud8.jpg';
-import ButtonGallery from "../UI/button/ButtonGallery";
 
 const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
+  const [activeButton, setActiveButton] = useState(null);
   const handleShowDefects = () => setShowDefects(!showDefects);
+  const handleShowCamera = (show) => setShowCamera(show);
+  const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
 
   return (
     <div className="overflow-hidden">
@@ -27,17 +32,25 @@ const CameraPage = () => {
             <BlockMap />
           </div>
         </div>
-        <div className="position-absolute top-50 end-0 d-flex flex-column me-3">
-          <div className="d-flex flex-row">
-            <div
-                className={`d-flex align-self-center rounded-circle border border-1 border-white ${showDefects ? 'bg-danger' : ''}`}
+        <div id="blockCamera" className={`${showCamera ? 'camera' : 'camera bg-opacity-50'} bg-black position-absolute end-0 d-flex flex-column align-items-end`}>
+          <div className="position-relative d-flex flex-row end-0">
+            <div className="position-relative">
+              <div
+                className="position-relative d-flex align-self-center rounded-circle border border-1 border-white"
                 style={{ width: '120px', height: '120px' }}
-            >
-              <ButtonCamera startShooting={handleShowDefects} />
+              >
+                <ButtonCamera startShooting={handleShowDefects} />
+              </div>
+              <ButtonGallery />
             </div>
-            <BlockShooting />
+            <div className="d-flex flex-column align-items-center top-50 end-0 ms-3">
+              <BlockShooting
+                openShootingView={handleShowCamera}
+                activeButton={activeButton}
+                setActiveButton={handleSetActiveButton}
+              />
+            </div>
           </div>
-          <ButtonGallery />
         </div>
       </div>
     </div>

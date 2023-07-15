@@ -8,7 +8,7 @@ import ButtonGallery from '../UI/button/ButtonGallery';
 import BlockShooting from '../blocks/BlockShooting';
 import '../../styles/index.css';
 import '../../styles/blockCamera.css';
-import powerSupplySupport from '../../assets/original-1ud8.jpg';
+import powerSupplySupport from '../../assets/powerSupplySupport.jpg';
 
 const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);

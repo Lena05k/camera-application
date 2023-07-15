@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
-import Header from './Header';
+import Header from '../blocks/Header';
 import powerSupplySupport from '../../assets/powerSupplySupport.jpg';
 
 const GalleryPage = () => {

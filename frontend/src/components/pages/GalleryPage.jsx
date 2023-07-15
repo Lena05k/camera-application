@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row } from 'react-bootstrap';
 import Header from './Header';
-import powerSupplySupport from '../../assets/original-1ud8.jpg';
+import powerSupplySupport from '../../assets/powerSupplySupport.jpg';
 
 const GalleryPage = () => {
   const images = [];

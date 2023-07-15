@@ -1,7 +1,7 @@
 import { Button, Nav, Navbar } from 'react-bootstrap';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Menu from './Menu';
+import BlockMenu from './BlockMenu';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Collapse id="responsive-navbar-nav" className="flex-shrink-1 me-5">
         <Nav className="mr-auto">
-          <Menu />
+          <BlockMenu />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

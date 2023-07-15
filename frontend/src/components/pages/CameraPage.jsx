@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './Header';
+import Header from '../blocks/Header';
 import BlockMap from '../blocks/BlockMap';
 import BlockWeather from '../blocks/BlockWeather';
 import Defects from '../UI/Defects';

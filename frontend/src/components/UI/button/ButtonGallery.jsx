@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ButtonGallery = () => (
-  <div className="align-self-start ms-4">
+  <div className="ms-4">
     <Link to="/gallery">
       <Button variant="outline-light" className="btn mt-5 rounded border border-2 bg-opacity-50 bg-secondary">
         <svg

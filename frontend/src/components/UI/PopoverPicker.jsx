@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
-import useClickOutside from '../../ordinary/useClickOutside';
-import '../../../styles/picketColor.css';
+import useClickOutside from '../ordinary/useClickOutside';
+import '../../styles/picketColor.css';
 
 const PopoverPicker = ({ color, onChange }) => {
   const popover = useRef();
@@ -11,13 +11,13 @@ const PopoverPicker = ({ color, onChange }) => {
   useClickOutside(popover, close);
 
   return (
-    <div className="picker btn link-offset-2 link-underline link-underline-opacity-0 d-flex flex-row align-items-center">
+    <div className="picker d-flex flex-row align-items-center">
       <div
-        className="swatch"
+        className="swatch me-2"
         style={{ backgroundColor: color }}
         onClick={() => toggle(true)}
       />
-      <HexColorInput color={color} onChange={onChange} />
+      <HexColorInput color={color} onChange={onChange} className="fs-4" style={{ width: '134px' }} />
 
       {isOpen && (
         <div className="popover" ref={popover}>

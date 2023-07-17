@@ -1,9 +1,10 @@
-import React from 'react';
-import * as FaIcons from 'react-icons/fa';
+import React, {useState} from 'react';
 import ButtonPhoto from '../UI/button/ButtonPhoto';
 import ButtonVideo from '../UI/button/ButtonVideo';
+import { ButtonCameraVideo } from '../UI/button/ButtonCamera';
 
-const BlockShooting = ({ openShootingView, activeButton, setActiveButton }) => {
+const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startShooting }) => {
+  const handleShowDefects = () => startShooting(true);
   const handleOpenPhoto = () => {
     openShootingView(true);
     setActiveButton('camera');
@@ -26,10 +27,7 @@ const BlockShooting = ({ openShootingView, activeButton, setActiveButton }) => {
       />
       {
         activeButton === 'video' && (
-          <FaIcons.FaCircle
-            className="position-absolute fs-1 text-danger"
-            style={{ top: '40px', left: '40px' }}
-          />
+          <ButtonCameraVideo startShooting={handleShowDefects} />
         )
       }
     </div>

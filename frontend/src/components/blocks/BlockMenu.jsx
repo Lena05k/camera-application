@@ -15,7 +15,7 @@ import '../../styles/Navbar.css';
 const BlockMenu = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [radioValue, setRadioValue] = useState('1');
-  const [color, setColor] = useState("#aabbcc");
+  const [color, setColor] = useState('#aabbcc');
 
   const radios = [
     { name: 'Схема', value: '1' },

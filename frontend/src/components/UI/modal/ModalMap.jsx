@@ -12,9 +12,9 @@ const ModalMap = () => (
   <YMaps className="rounded">
     <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }}>
       <FullscreenControl />
-      <GeolocationControl options={{ float: "right" }} />
-      <ZoomControl options={{ float: "right" }} />
-      <TypeSelector options={{ float: "right" }} />
+      <GeolocationControl options={{ float: 'right' }} />
+      <ZoomControl options={{ float: 'right' }} />
+      <TypeSelector options={{ float: 'right' }} />
     </Map>
   </YMaps>
 );

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
 import Header from '../blocks/Header';
 import BlockMap from '../blocks/BlockMap';
 import BlockWeather from '../blocks/BlockWeather';
 import Defects from '../UI/Defects';
-import ButtonCamera from '../UI/button/ButtonCamera';
+import { ButtonCamera } from '../UI/button/ButtonCamera';
 import ButtonGallery from '../UI/button/ButtonGallery';
+import VerticalSlider from '../UI/VerticalSlider';
 import BlockShooting from '../blocks/BlockShooting';
 import '../../styles/index.css';
 import '../../styles/blockCamera.css';
@@ -14,9 +17,27 @@ const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);
   const [showCamera, setShowCamera] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
-  const handleShowDefects = () => setShowDefects(!showDefects);
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const intervalRef = useRef();
+  const handleShowDefects = () => {
+    if (!isRunning) {
+      setIsRunning(true);
+      intervalRef.current = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    }
+    setShowDefects(!showDefects);
+  };
   const handleShowCamera = (show) => setShowCamera(show);
   const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
 
   return (
     <div className="overflow-hidden">
@@ -26,9 +47,13 @@ const CameraPage = () => {
         <div className="position-absolute w-100 h-100 mx-auto overflow-hidden object-fit-cover">
           {showDefects && <Defects />}
         </div>
+        <div className="position-absolute" style={{ top: '101px', left: '900px' }}>
+          {showDefects && <div className="fs-1 text-danger">{formatTime(time)}</div>}
+        </div>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
-          <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
+          <div className="d-flex flex-column mt-5" style={{ height: '900px' }}>
             <BlockWeather />
+            <VerticalSlider />
             <BlockMap />
           </div>
         </div>
@@ -48,6 +73,7 @@ const CameraPage = () => {
                 openShootingView={handleShowCamera}
                 activeButton={activeButton}
                 setActiveButton={handleSetActiveButton}
+                startShooting={handleShowDefects}
               />
             </div>
           </div>

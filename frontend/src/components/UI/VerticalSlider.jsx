@@ -10,15 +10,16 @@ const VerticalSlider = () => {
   };
 
   return (
-    <Box sx={{ height: 300 }}>
+    <Box className="mb-auto" sx={{ height: 300 }}>
       <Slider
+        className="text-white"
         sx={{
           '& input[type="range"]': {
             WebkitAppearance: 'slider-vertical',
           },
         }}
         orientation="vertical"
-        defaultValue={30}
+        defaultValue={50}
         aria-label="Temperature"
         valueLabelDisplay="auto"
         onKeyDown={preventHorizontalKeyboardNavigation}

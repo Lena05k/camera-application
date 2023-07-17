@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
+import * as SlIcons from "react-icons/sl";
 
 export const ButtonClose = ({ closeModal }) => (
   <Button variant="light" className=" shadow-lg p-2 py-1 mt-1 mb-5 bg-body-tertiary rounded" onClick={() => closeModal(false)}>

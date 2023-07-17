@@ -84,6 +84,16 @@ const BlockMenu = () => {
                 </Button>
               </div>
             </div>
+            <div className="d-flex flex-row justify-content-between mx-3 my-3">
+              <p className="text-white fs-4">Микрофон</p>
+              <Form>
+                <Form.Check
+                  type="switch"
+                  id="custom-switch"
+                  className="fs-3"
+                />
+              </Form>
+            </div>
             <div className="" style={{ background: '#212529' }}>
               <p className="mx-3 py-2 text-white fs-4">Карта</p>
             </div>

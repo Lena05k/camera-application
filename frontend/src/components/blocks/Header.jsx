@@ -1,11 +1,13 @@
 import { Button, Nav, Navbar } from 'react-bootstrap';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
-import BlockMenu from './BlockMenu';
+import BlockSettings from './BlockSettings';
 
 const Header = () => {
+  const [switchMicro, setSwitchMicro] = useState(true);
+  const handleSwitchMicro = () => setSwitchMicro(!switchMicro);
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
 
@@ -42,8 +44,11 @@ const Header = () => {
               <FaIcons.FaWifi className="me-5 fs-3" />
             </div>
             <div>
-              <FaIcons.FaMicrophone className="me-5 fs-3" />
-              {/*<FaIcons.FaMicrophoneSlash className"fs-3 />*/}
+              {switchMicro ? (
+                <FaIcons.FaMicrophoneSlash className="me-5 fs-3" />
+              ) : (
+                <FaIcons.FaMicrophone className="me-5 fs-3" />
+              )}
               <GiIcons.GiBattery75 className="me-5 fs-3" />
             </div>
           </div>
@@ -51,7 +56,7 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Collapse id="responsive-navbar-nav" className="flex-shrink-1 me-5">
         <Nav className="mr-auto">
-          <BlockMenu />
+          <BlockSettings handleSwitchMicro={handleSwitchMicro} />
         </Nav>
       </Navbar.Collapse>
     </Navbar>

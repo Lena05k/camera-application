@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalSetting from '../UI/modal/ModalSetting';
 import ButtonSettings from '../UI/button/ButtonSettings';
 
-const BlockSettings = () => {
+const BlockModalSettings = () => {
   const [modalShow, setModalShow] = useState(false);
   const handleModalShow = (modal) => setModalShow(modal);
 
@@ -18,4 +18,4 @@ const BlockSettings = () => {
   );
 };
 
-export default BlockSettings;
+export default BlockModalSettings;

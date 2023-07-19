@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Button,
-  Form,
-} from 'react-bootstrap';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import * as GoIcons from 'react-icons/go';
-import '../../styles/Navbar.css';
 import {
   Theme,
   Color,
   MapView,
   Language, Microphone,
 } from '../UI/SettingsInterface';
-import {ScaleRuler, ZoomButton} from "../UI/SettingsMap";
+import {
+  MapRotation,
+  ScaleRuler,
+  ZoomButtons,
+} from '../UI/SettingsMap';
+import '../../styles/Navbar.css';
 
-const BlockMenu = () => {
+const BlockSettings = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-
+  const [switchMicro, setSwitchMicro] = useState(true);
+  const handleSwitchMicro = () => setSwitchMicro(!switchMicro);
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
 
   return (
@@ -38,29 +38,20 @@ const BlockMenu = () => {
             <div className="" style={{ background: '#212529' }}>
               <p className="mx-3 py-2 text-white fs-4">Общее</p>
             </div>
-            <div className="mx-3">
+            <div className="mx-3 text-white">
               <Theme />
               <Color />
               <MapView />
               <Language />
-              <Microphone />
+              <Microphone handleSwitchMicro={handleSwitchMicro} />
             </div>
             <div className="" style={{ background: '#212529' }}>
               <p className="mx-3 py-2 text-white fs-4">Карта</p>
             </div>
-            <div className="mx-3">
-              <ZoomButton />
+            <div className="mx-3 text-white">
+              <ZoomButtons />
               <ScaleRuler />
-              <div className="d-flex flex-row justify-content-between align-items-center my-3">
-                <p className="text-white fs-4">Вращение карты пальцами</p>
-                <Form>
-                  <Form.Check
-                    type="switch"
-                    id="custom-switch"
-                    className="fs-3"
-                  />
-                </Form>
-              </div>
+              <MapRotation />
             </div>
           </div>
         </div>
@@ -69,4 +60,4 @@ const BlockMenu = () => {
   );
 };
 
-export default BlockMenu;
+export default BlockSettings;

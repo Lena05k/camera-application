@@ -1,11 +1,13 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import BlockModalSettings from '../blocks/BlockModalSettings';
 import '../../styles/main.css';
 
 const MainPage = () => {
   return (
     <div className="main d-flex flex-column min-vh-100 justify-content-center align-items-center">
+      <BlockModalSettings />
       <Card className="bg-black">
         <Card.Body className="col p-5 text-center">
           <Link to="/camera" variant="outline-primary justify-content-center">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ModalSetting from '../UI/modal/ModalSetting';
-import ButtonSettings from '../UI/button/ButtonSettings';
+import ModalSetting from '../../UI/modal/ModalSetting';
+import ButtonSettings from './ButtonSettings';
 
 const BlockModalSettings = () => {
   const [modalShow, setModalShow] = useState(false);

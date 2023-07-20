@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import ButtonPhoto from '../UI/button/ButtonPhoto';
-import ButtonVideo from '../UI/button/ButtonVideo';
-import { ButtonCameraVideo } from '../UI/button/ButtonCamera';
+import React from 'react';
+import ButtonPhoto from './buttons/ButtonPhoto';
+import ButtonVideo from './buttons/ButtonVideo';
+import { ButtonCameraVideo } from './buttons/ButtonCamera';
 
 const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startShooting }) => {
   const handleShowDefects = () => startShooting(true);

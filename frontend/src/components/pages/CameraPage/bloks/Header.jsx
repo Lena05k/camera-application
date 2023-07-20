@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
-import BlockSettings from './BlockSettings';
+import BlockSettings from '../MainPage/BlockSettings';
 
 const Header = () => {
   const [switchMicro, setSwitchMicro] = useState(true);

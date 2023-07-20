@@ -166,6 +166,7 @@ export const Language = () => {
 };
 
 export const Microphone = ({ handleSwitchMicro }) => {
+  const switchMicro = (event) => handleSwitchMicro(event.target.checked);
   return (
     <div className="d-flex flex-row justify-content-between my-3">
       <p className="fs-4">Микрофон</p>
@@ -174,7 +175,7 @@ export const Microphone = ({ handleSwitchMicro }) => {
           type="switch"
           id="custom-switch"
           className="fs-3"
-          onChange={handleSwitchMicro}
+          onChange={switchMicro}
         />
       </Form>
     </div>

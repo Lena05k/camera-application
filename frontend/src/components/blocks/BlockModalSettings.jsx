@@ -13,7 +13,8 @@ const BlockModalSettings = () => {
       </div>
       <ModalSetting
         show={modalShow}
-        onHide={() => setModalShow(false)} />
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };

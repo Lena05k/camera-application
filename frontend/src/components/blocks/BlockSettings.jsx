@@ -15,10 +15,8 @@ import {
 } from '../UI/SettingsMap';
 import '../../styles/Navbar.css';
 
-const BlockSettings = () => {
+const BlockSettings = ({ handleSwitchMicro }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [switchMicro, setSwitchMicro] = useState(true);
-  const handleSwitchMicro = () => setSwitchMicro(!switchMicro);
   const toggleMenu = () => setMenuOpen(!isMenuOpen);
 
   return (

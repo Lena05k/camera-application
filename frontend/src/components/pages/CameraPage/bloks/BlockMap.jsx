@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ModalMap from '../UI/modal/ModalMap';
-import { ButtonClose } from '../UI/button/ButtonClose';
-import ButtonOpenModal from '../UI/button/ButtonOpen';
+import ModalMap from '../modals/ModalMap';
+import { ButtonClose } from '../buttons/ButtonClose';
+import ButtonOpenModal from '../buttons/ButtonOpen';
 
 const BlockMap = () => {
   const [showMap, setShowMap] = useState(false);

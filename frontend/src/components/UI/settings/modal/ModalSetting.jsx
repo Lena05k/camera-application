@@ -13,19 +13,19 @@ import {
   MapView,
   Microphone,
   Theme,
-} from '../SettingsInterface';
+} from '../containers/SettingsInterface';
 import {
   MapRotation,
   ScaleRuler,
   ZoomButtons,
-} from '../SettingsMap';
+} from '../containers/SettingsMap';
 import {
   ContactDevelopers,
   LicenseAgreement,
   PrivacyPolicy,
   TermsOfUse,
   Version,
-} from '../SettingsApout';
+} from '../containers/SettingsApout';
 
 const ModalSetting = (props) => {
 

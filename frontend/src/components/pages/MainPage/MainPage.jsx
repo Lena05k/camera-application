@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import BlockModalSettings from '../blocks/BlockModalSettings';
-import '../../styles/main.css';
+import BlockModalSettings from './bloks/BlockModalSettings';
+import '../../../styles/main.css';
 
 const MainPage = () => {
   return (
     <div className="main d-flex flex-column min-vh-100 justify-content-center align-items-center">
       <BlockModalSettings />
-      <Card className="bg-black">
+      <Card className="bg-black bg-opacity-25">
         <Card.Body className="col p-5 text-center">
           <Link to="/camera" variant="outline-primary justify-content-center">
             <Button variant="outline-light" className="p-5 m-2 me-2 fs-1">

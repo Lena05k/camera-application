@@ -5,11 +5,11 @@ import {
   Route,
 } from 'react-router-dom';
 import routes from './routes/routes';
-import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage/MainPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.css';
-import CameraPage from './pages/CameraPage';
-import GalleryPage from './pages/GalleryPage';
+import CameraPage from './pages/CameraPage/CameraPage';
+import GalleryPage from './pages/GalleryPage/GalleryPage';
 import ReportPage from './pages/RepostPage/ReportPage';
 
 const App = () => (

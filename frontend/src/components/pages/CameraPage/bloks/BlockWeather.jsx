@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ButtonWeather from '../UI/button/ButtonWeather';
-import ModalWeather from '../UI/modal/ModalWeather';
-import { ButtonWeatherClose } from '../UI/button/ButtonClose';
+import ButtonWeather from '../buttons/ButtonWeather';
+import ModalWeather from '../modals/ModalWeather';
+import { ButtonWeatherClose } from '../buttons/ButtonClose';
 
 const BlockWeather = () => {
   const [showMap, setShowMap] = useState(false);

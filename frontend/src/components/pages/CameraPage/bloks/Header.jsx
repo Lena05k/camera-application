@@ -1,15 +1,36 @@
 import { Button, Nav, Navbar } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
-import BlockSettings from '../MainPage/BlockSettings';
+import BlockSettings from '../../../UI/settings/BlockSettings';
 
 const Header = () => {
   const [switchMicro, setSwitchMicro] = useState(true);
+  const [time, setTime] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const [switchTime, setSwitchTime] = useState(true);
+  const intervalRef = useRef();
   const handleSwitchMicro = () => setSwitchMicro(!switchMicro);
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
+
+  const handleSetSwitchTime = () => {
+    if (!isRunning) {
+      setIsRunning(true);
+      intervalRef.current = setInterval(() => {
+        setTime((prevTime) => prevTime + 1);
+      }, 1000);
+    }
+  };
+
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
 
   return (
     <Navbar
@@ -37,6 +58,7 @@ const Header = () => {
               />
             </svg>
           </Button>
+          {switchTime && <div className="fs-1 text-danger">{formatTime(time)}</div>}
           <div className="d-flex flex-row justify-content-sm-between">
             <div>
               <FaIcons.FaSignal className="me-5  fs-3" />

@@ -7,12 +7,12 @@ import {
   Color,
   MapView,
   Language, Microphone,
-} from '../../UI/SettingsInterface';
+} from './containers/SettingsInterface';
 import {
   MapRotation,
   ScaleRuler,
   ZoomButtons,
-} from '../../UI/SettingsMap';
+} from './containers/SettingsMap';
 import '../../../styles/Navbar.css';
 
 const BlockSettings = ({ handleSwitchMicro }) => {

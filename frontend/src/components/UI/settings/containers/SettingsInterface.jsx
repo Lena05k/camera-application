@@ -4,7 +4,7 @@ import {
   Form,
   ToggleButton,
 } from 'react-bootstrap';
-import PopoverPicker from './PopoverPicker';
+import PopoverPicker from './colorPicket/PopoverPicker';
 
 export const Theme = () => {
   const [selectedTitle, setSelectedTitle] = useState('Светлая');

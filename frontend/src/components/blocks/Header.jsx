@@ -45,9 +45,9 @@ const Header = () => {
             </div>
             <div>
               {switchMicro ? (
-                <FaIcons.FaMicrophoneSlash className="me-5 fs-3" />
-              ) : (
                 <FaIcons.FaMicrophone className="me-5 fs-3" />
+              ) : (
+                <FaIcons.FaMicrophoneSlash className="me-5 fs-3" />
               )}
               <GiIcons.GiBattery75 className="me-5 fs-3" />
             </div>

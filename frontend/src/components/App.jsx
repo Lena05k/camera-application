@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.css';
 import CameraPage from './pages/CameraPage';
 import GalleryPage from './pages/GalleryPage';
-import ReportPage from './pages/ReportPage';
+import ReportPage from './pages/RepostPage/ReportPage';
 
 const App = () => (
   <Router>

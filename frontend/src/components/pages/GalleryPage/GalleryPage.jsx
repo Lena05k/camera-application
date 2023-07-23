@@ -77,7 +77,7 @@ const GalleryPage = () => {
       <Row xs={1} md={3} className="gx-4 gy-4 ms-5 me-5 pb-5">
         {items.map((item, index) => (
           <Col key={index}>
-            <Card onClick={() => handleItemClick(item)}>
+            <Card onClick={() => handleItemClick(index)}>
               {item.type === 'photo' && (
                 <Card.Img variant="top" src={item.url} className="img-fluid rounded-3 overflow-hidden" style={{ height: '300px' }} />
               )}
@@ -96,8 +96,8 @@ const GalleryPage = () => {
       <Modal size="xl" show={showModal} onHide={handleCloseModal} centered>
         <Modal.Body>
           <Carousel activeIndex={selectedIndex} onSelect={handleSelect}>
-            {items.map((item, index) => (
-              <Carousel.Item key={item.id} className={index === selectedIndex ? 'active' : ''}>
+            {items.map((item) => (
+              <Carousel.Item key={item.id}>
                 {item.type === 'photo' && (
                   <img src={item.url} alt="Selected Item" className="img-fluid" />
                 )}

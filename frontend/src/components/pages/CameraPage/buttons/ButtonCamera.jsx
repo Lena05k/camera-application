@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as FaIcons from 'react-icons/fa';
 
-export const ButtonCamera = ({ startShooting }) => (
+export const ButtonCamera = ({ clickPhoto }) => (
   <Button
-    onClick={() => startShooting(true)}
+    onClick={() => clickPhoto(true)}
     className="position-relative align-self-center ms-2 rounded-circle bg-white border border-2"
     style={{ width: '100px', height: '100px' }}
   />

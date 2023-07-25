@@ -10,14 +10,17 @@ import BlockShooting from './bloks/BlockShooting';
 import '../../../styles/index.css';
 import '../../../styles/blockCamera.css';
 import powerSupplySupport from '../../../assets/powerSupplySupport.jpg';
+import Exposition from "./bloks/Exposition";
 
 const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);
   const [showCamera, setShowCamera] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
+  const [showClick, setShowClick] = useState(false);
   const handleShowCamera = (show) => setShowCamera(show);
   const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
   const handleShowDefects = () => setShowDefects(!showDefects);
+  const handleClickPhoto = () => setShowClick(!showClick);
 
   return (
     <div className="overflow-hidden">
@@ -26,6 +29,7 @@ const CameraPage = () => {
         <img className="position-fixed w-100 h-100 p-0 start-0 end-0 top-0 bottom-0 object-fit-fill" src={powerSupplySupport} alt="power supply support" />
         <div className="position-absolute w-100 h-100 mx-auto overflow-hidden object-fit-cover">
           {showDefects && <Defects />}
+          {showClick && <Exposition  />}
         </div>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
           <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
@@ -41,7 +45,7 @@ const CameraPage = () => {
                 className="position-relative d-flex align-self-center rounded-circle border border-1 border-white"
                 style={{ width: '120px', height: '120px' }}
               >
-                <ButtonCamera startShooting={handleShowDefects} />
+                <ButtonCamera clickPhoto={handleClickPhoto}/>
               </div>
               <ButtonGallery />
             </div>

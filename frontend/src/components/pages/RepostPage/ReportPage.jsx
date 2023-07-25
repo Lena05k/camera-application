@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Card } from 'react-bootstrap';
-import Table from './Table/Table';
+import TableRepost from './Table/Table';
 import Header from './bloks/Header';
 
 const ReportPage = () => {
@@ -11,7 +11,7 @@ const ReportPage = () => {
       <div className="">
         <Card className="col p-5 text-center">
           <Card.Body>
-            <Table />
+            <TableRepost />
           </Card.Body>
         </Card>
       </div>

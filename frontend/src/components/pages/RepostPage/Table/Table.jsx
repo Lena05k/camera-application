@@ -1,5 +1,11 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import {
+  Modal,
+  Accordion,
+} from 'react-bootstrap';
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
+import ModalMap from '../../CameraPage/modals/ModalMap';
+import photo from '../../../../assets/powerSupplySupport.jpg';
 
 const rows: GridRowsProp = [
   {
@@ -91,13 +97,83 @@ const columns: GridColDef[] = [
   { field: 'col4', headerName: 'Опора', width: 150 },
   { field: 'col5', headerName: 'Дефекта', width: 150 },
 ];
-const Table = () => {
+const TableRepost = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const handleRowClick = (params) => {
+    setSelectedRow(params.row);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedRow(0);
+    setShowModal(false);
+  };
 
   return (
-    <div style={{ height: '500px', width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} />
-    </div>
+    <>
+      <div style={{ height: '500px', width: '100%' }}>
+        <DataGrid rows={rows} columns={columns} onRowClick={handleRowClick} />
+      </div>
+      <Modal size="xl" show={showModal} onHide={handleCloseModal} centered>
+        <Modal.Body>
+          {selectedRow && (
+            <div className="d-flex flex-row justify-content-around align-items-center mt-3">
+              <div>
+                <img src={photo} alt="" height="400" />
+              </div>
+              <div className="d-flex flex-column">
+                <div className="d-flex flex-row">
+                  <p className="fs-4">
+                    Дата:
+                    {selectedRow.col2}
+                  </p>
+                  <p className="fs-4 ms-4">
+                    Время:
+                    {selectedRow.col3}
+                  </p>
+                </div>
+                <div className="d-flex flex-column">
+                  <p className="fs-4">
+                    Температура: +20
+                  </p>
+                  <p className="fs-4">
+                    Влажность: 80%
+                  </p>
+                  <p className="fs-4">
+                    Давление: 275 мм.рт.ст.
+                  </p>
+                </div>
+                <Accordion defaultActiveKey="0" className="mb-3">
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header variant="link" eventKey="0">
+                      Oтчет
+                    </Accordion.Header>
+                    <Accordion.Body eventKey="0">
+                      <div className="accordion-body">
+                        <p className="fs-4">
+                          Опора:
+                          {selectedRow.col4}
+                        </p>
+                        <p className="fs-4">
+                          Дефекта:
+                          {selectedRow.col5}
+                        </p>
+                      </div>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+                <div>
+                  <ModalMap />
+                </div>
+              </div>
+            </div>
+          )}
+        </Modal.Body>
+      </Modal>
+    </>
   );
 };
 
-export default Table;
+export default TableRepost;

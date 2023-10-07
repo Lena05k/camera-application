@@ -15,22 +15,22 @@ const Header = () => {
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
 
-  const handleSetSwitchTime = () => {
-    if (!isRunning) {
-      setIsRunning(true);
-      intervalRef.current = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
-      }, 1000);
-    }
-  };
+  // const handleSetSwitchTime = () => {
+  //   if (!isRunning) {
+  //     setIsRunning(true);
+  //     intervalRef.current = setInterval(() => {
+  //       setTime((prevTime) => prevTime + 1);
+  //     }, 1000);
+  //   }
+  // };
 
-  const formatTime = (totalSeconds) => {
-    const minutes = Math.floor(totalSeconds / 60)
-      .toString()
-      .padStart(2, '0');
-    const seconds = (totalSeconds % 60).toString().padStart(2, '0');
-    return `${minutes}:${seconds}`;
-  };
+  // const formatTime = (totalSeconds) => {
+  //   const minutes = Math.floor(totalSeconds / 60)
+  //     .toString()
+  //     .padStart(2, '0');
+  //   const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+  //   return `${minutes}:${seconds}`;
+  // };
 
   return (
     <Navbar
@@ -58,7 +58,7 @@ const Header = () => {
               />
             </svg>
           </Button>
-          {switchTime && <div className="fs-1 text-danger">{formatTime(time)}</div>}
+          {/*{switchTime && <div className="fs-1 text-danger">{formatTime(time)}</div>}*/}
           <div className="d-flex flex-row justify-content-sm-between">
             <div>
               <FaIcons.FaSignal className="me-5  fs-3" />

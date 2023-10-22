@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
     const Defects = sequelize.define("Defects", {
-        Numper:{
+        numper:{
             type: DataTypes.INTEGER,
         },
     });

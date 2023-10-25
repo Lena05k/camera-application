@@ -20,17 +20,17 @@ if (dbConfig.use_env_variable) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.Repost = require('./ReportModule')(sequelize, DataTypes);
-db.User = require('./UserModul')(sequelize, DataTypes);
-db.WeatherForecast = require('./WeatherForecastModule')(sequelize, DataTypes);
-db.Location = require('./LocationModule')(sequelize, DataTypes);
-db.Defects = require('./DefectsModule')(sequelize, DataTypes);
-db.Recommendation = require('./RecommendationModule')(sequelize, DataTypes);
-db.Results = require('./ResultsModule')(sequelize, DataTypes);
-db.Gallery = require('./GalleryModule')(sequelize, DataTypes);
-db.Photo = require('./PhotoModule')(sequelize, DataTypes);
-db.Video = require('./VideoModule')(sequelize, DataTypes);
-db.Data = require('./DataModule')(sequelize, DataTypes);
+db.Repost = require('./ReportModel')(sequelize, DataTypes);
+db.User = require('./UserModel')(sequelize, DataTypes);
+db.WeatherForecast = require('./WeatherForecastModel')(sequelize, DataTypes);
+db.Location = require('./LocationModel')(sequelize, DataTypes);
+db.Defects = require('./DefectsModel')(sequelize, DataTypes);
+db.Recommendation = require('./RecommendationModel')(sequelize, DataTypes);
+db.Results = require('./ResultsModel')(sequelize, DataTypes);
+db.Gallery = require('./GalleryModel')(sequelize, DataTypes);
+db.Photo = require('./PhotoModel')(sequelize, DataTypes);
+db.Video = require('./VideoModel')(sequelize, DataTypes);
+db.Data = require('./DataModel')(sequelize, DataTypes);
 
 // 1 - N Пользователь может бесконечно делать фото и видео
 db.User.hasMany(db.Photo, { as: 'photo', foreignKey: 'id_photo'});

@@ -60,7 +60,7 @@ db.Repost.hasOne(db.Results);
 // Отчет принадлежит пользователю
 db.Repost.belongsTo(db.User, { as: 'user', foreignKey: 'user_id'});
 
-// 1 - 1 Данные принадлежит отчету
+// 1 - 1 Данные принадлежат отчету
 db.WeatherForecast.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
 db.Location.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
 db.Defects.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });

@@ -1,3 +1,6 @@
 /.idea
 /bun.lockb
 /node_modules
+qodana.yaml
+.idea
+/config

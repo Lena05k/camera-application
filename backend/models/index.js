@@ -39,13 +39,13 @@ db.User.hasMany(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
 db.Photo.hasOne(db.Data);
 // Фото принадлежат отчету и пользователю
 db.Photo.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Photo.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id');
+db.Photo.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id'});
 
 // 1 - 1 Видео привязаны к датам
 db.Video.hasOne(db.Data);
 // Видео принадлежат отчету и пользователю
 db.Video.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Video.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id');
+db.Video.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id'});
 
 // Даты принадлажат фото и видео
 db.Data.belongsTo(db.Photo);

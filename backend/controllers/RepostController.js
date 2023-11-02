@@ -1,25 +1,27 @@
 const db = require('../models');
-const {title} = require("process");
+const { title} = require("process");
 const Repost = db.Repost;
-const Op = db.Sequelize.Op;
+// const Op = db.Sequelize.Op;
 
-// exports.createRepost = (repost) => {
-//    return Repost.create({
-//        id: repost.id,
-//    })
-//        .then((repost) => {
-//            console.log('>> Created repost: ' + JSON.stringify(repost, null, 4));
-//        })
-//        .catch((err) => {
-//            console.log('>> Error while creating repost: ', err)
-//        })
-// };
+exports.create = (req, res) => {
+    const repost = {
+        id: req.body.id,
+    };
+   return Repost.create(repost)
+       .then((repost) => {
+           console.log('>> Created repost: ' + JSON.stringify(repost, null, 4));
+       })
+       .catch((err) => {
+           console.log('>> Error while creating repost: ', err)
+       })
+};
 
-exports.findAll = (req, res) => {
+exports.findOne = (req, res) => {
     const repost = req.query;
 
-    Repost.findAll(repost)
+    Repost.findOne(repost)
         .then(data => {
+            // console.log(data);
             res.send(data);
         })
         .catch(err => {

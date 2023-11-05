@@ -3,6 +3,7 @@ import Header from './bloks/Header';
 import BlockMap from './bloks/BlockMap';
 import BlockWeather from './bloks/BlockWeather';
 import Defects from './bloks/Defects';
+import ModalCancelNext from './modals/ModalCancelNext';
 import { ButtonCamera } from './buttons/ButtonCamera';
 import ButtonGallery from './buttons/ButtonGallery';
 import VerticalSlider from '../../UI/settings/containers/VerticalSlider';
@@ -17,10 +18,13 @@ const CameraPage = () => {
   const [showCamera, setShowCamera] = useState(false);
   const [activeButton, setActiveButton] = useState(null);
   const [showClick, setShowClick] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
+
   const handleShowCamera = (show) => setShowCamera(show);
   const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
   const handleShowDefects = () => setShowDefects(!showDefects);
   const handleClickPhoto = () => setShowClick(!showClick);
+  const handleModalShow = () => setModalShow(!modalShow);
 
   return (
     <div className="overflow-hidden">
@@ -30,6 +34,9 @@ const CameraPage = () => {
         <div className="position-absolute w-100 h-100 mx-auto overflow-hidden object-fit-cover">
           {showDefects && <Defects />}
           {showClick && <Exposition  />}
+          <ModalCancelNext
+            show={modalShow}
+          />
         </div>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
           <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
@@ -55,6 +62,7 @@ const CameraPage = () => {
                 activeButton={activeButton}
                 setActiveButton={handleSetActiveButton}
                 startShooting={handleShowDefects}
+                setModalShow={handleModalShow}
               />
             </div>
           </div>

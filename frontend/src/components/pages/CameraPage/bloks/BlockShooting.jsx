@@ -5,7 +5,7 @@ import { ButtonCameraVideo } from '../buttons/ButtonCamera';
 
 const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startShooting, setModalShow }) => {
   const handleShowDefects = () => startShooting(true);
-  const handleShowModal = (modal) => setModalShow(modal);
+  const handleShowModal = () => setModalShow(true);
   const handleOpenPhoto = () => {
     openShootingView(true);
     setActiveButton('camera');

@@ -5,11 +5,12 @@ import {
 } from 'react-bootstrap';
 
 
-const ModalCancelNext = () => {
+const ModalCancelNext = (props) => {
 
   return (
     <Modal
-      size="sm"
+      { ...props }
+      size="md"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >

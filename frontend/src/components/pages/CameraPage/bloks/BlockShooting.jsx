@@ -3,8 +3,16 @@ import ButtonPhoto from '../buttons/ButtonPhoto';
 import ButtonVideo from '../buttons/ButtonVideo';
 import { ButtonCameraVideo } from '../buttons/ButtonCamera';
 
-const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startShooting, setModalShow }) => {
-  const handleShowDefects = () => startShooting(true);
+const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startShooting, setModalShow, setStartShooting }) => {
+  const handleShowDefects = () => {
+    if (startShooting) {
+      startShooting(false);
+      setModalShow(true);
+    } else {
+      startShooting();
+    }
+  };
+
   const handleShowModal = () => setModalShow(true);
   const handleOpenPhoto = () => {
     openShootingView(true);

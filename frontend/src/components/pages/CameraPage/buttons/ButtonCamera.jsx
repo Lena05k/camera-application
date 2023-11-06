@@ -13,8 +13,8 @@ export const ButtonCamera = ({ clickPhoto }) => (
 export const ButtonCameraVideo = ({ startShooting, setModalShow }) => (
   <Button
     onClick={() => {
-      startShooting(true);
-      setModalShow(true);
+      startShooting();
+      setModalShow(false);
     }}
     variant="link"
     className="link-offset-2 link-underline link-underline-opacity-0"

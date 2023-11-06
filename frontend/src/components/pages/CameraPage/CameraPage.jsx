@@ -12,6 +12,7 @@ import '../../../styles/index.css';
 import '../../../styles/blockCamera.css';
 import powerSupplySupport from '../../../assets/powerSupplySupport.jpg';
 import Exposition from "./bloks/Exposition";
+import {Button, Modal} from "react-bootstrap";
 
 const CameraPage = () => {
   const [showDefects, setShowDefects] = useState(false);
@@ -24,7 +25,7 @@ const CameraPage = () => {
   const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
   const handleShowDefects = () => setShowDefects(!showDefects);
   const handleClickPhoto = () => setShowClick(!showClick);
-  const handleModalShow = () => setModalShow(!modalShow);
+  const handleModalShow = (modal) => setModalShow(modal);
 
   return (
     <div className="overflow-hidden">
@@ -34,10 +35,8 @@ const CameraPage = () => {
         <div className="position-absolute w-100 h-100 mx-auto overflow-hidden object-fit-cover">
           {showDefects && <Defects />}
           {showClick && <Exposition  />}
-          <ModalCancelNext
-            show={modalShow}
-          />
         </div>
+        <ModalCancelNext show={modalShow} onHide={() => setModalShow(false)}/>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
           <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
             <BlockWeather />

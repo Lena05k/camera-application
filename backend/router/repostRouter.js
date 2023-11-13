@@ -1,15 +1,11 @@
+const reposts = require("../controllers/RepostController");
 module.exports = app => {
-    const reposts = 'controllers/RepostController.js';
+    const reposts = require('../controllers/RepostController.js');
     const router = require('express').Router();
 
-    router.get('/', function (req, res) {
-        console.log(res)
-        return reposts.findOne;
-    });
+    router.get('/', reposts.findAll);
 
-    router.post('/', function (req, res) {
-       return reposts.create;
-    });
+    router.post('/', reposts.create);
 
 
     app.use('/api/camera-application', router);

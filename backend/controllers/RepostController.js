@@ -1,35 +1,40 @@
 const db = require('../models');
 const { title} = require("process");
 const Repost = db.Repost;
-// const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    const repost = {
-        id: req.body.id,
-    };
-   return Repost.create(repost)
-       .then((repost) => {
-           console.log('>> Created repost: ' + JSON.stringify(repost, null, 4));
-       })
-       .catch((err) => {
-           console.log('>> Error while creating repost: ', err)
-       })
+  if (!req.body.id) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+  };
+
+  const repost = {
+    id: req.body.id,
+    repostId: req.body.repostId,
+  };
+
+  Repost.create(repost)
+    .then((data) => {
+       res.send(data);
+    })
+    .catch((err) => {
+       res.status(500).send({
+         message: err.message || "Some error occurred while creating the Repost.",
+    });
+  });
 };
 
-exports.findOne = (req, res) => {
-    const repost = req.query;
-
-    Repost.findOne(repost)
-        .then(data => {
-            // console.log(data);
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Repost."
-            })
-        });
+exports.findAll = (req, res) => {
+  Repost.findAll()
+    .then(data => {
+       res.send(data);
+    })
+    .catch(err => {
+       res.status(500).send({
+          message: err.message || "Some error occurred while creating the Repost.",
+       })
+    });
 };
 
 //

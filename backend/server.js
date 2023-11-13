@@ -17,9 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
     res.json({requestBody: req.body})
-    res.send('HELLO POSTGRES + NODEJS!!');
+    // res.send('HELLO POSTGRES + NODEJS!!');
 });
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
 require('./router/repostRouter')(app);
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

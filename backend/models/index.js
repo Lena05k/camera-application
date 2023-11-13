@@ -4,18 +4,24 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const {DataTypes} = require("sequelize");
 const env = process.env.NODE_ENV || 'development';
-const dbConfig = require(__dirname + '/../config/config.json')[env];
+const dbConfig = require('../config/db.config.js');
 const db = {};
 
-let sequelize;
-if (dbConfig.use_env_variable) {
-  sequelize = new Sequelize(process.env[dbConfig.use_env_variable], dbConfig);
-} else {
-  sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, dbConfig);
-}
+const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+  host: dbConfig.HOST,
+  dialect: dbConfig.dialect,
+  operatorsAliases: false,
 
-db.sequelize = sequelize;
+  pool: {
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
+    acquire: dbConfig.pool.acquire,
+    idle: dbConfig.pool.idle,
+  },
+});
+
 db.Sequelize = Sequelize;
+db.sequelize = sequelize;
 
 db.Repost = require('./ReportModel')(sequelize, DataTypes);
 db.User = require('./UserModel')(sequelize, DataTypes);
@@ -33,18 +39,18 @@ db.Data = require('./DataModel')(sequelize, DataTypes);
 db.User.hasMany(db.Photo, { as: 'photo', foreignKey: 'photo_id'});
 db.User.hasMany(db.Video, { as: 'video', foreignKey: 'video_id'});
 // 1 - N Пользователь есть все отчеты
-db.User.hasMany(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
+db.User.hasMany(db.Repost, { as: 'repost', foreignKey: 'repostId' });
 
 // 1 - 1 Фото привязаны к датам
 db.Photo.hasOne(db.Data);
 // Фото принадлежат отчету и пользователю
-db.Photo.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
+db.Photo.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
 db.Photo.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id'});
 
 // 1 - 1 Видео привязаны к датам
 db.Video.hasOne(db.Data);
 // Видео принадлежат отчету и пользователю
-db.Video.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
+db.Video.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
 db.Video.belongsTo(db.Repost, { as: 'user', foreignKey: 'user_id'});
 
 // Даты принадлажат фото и видео
@@ -61,10 +67,10 @@ db.Repost.hasOne(db.Results);
 db.Repost.belongsTo(db.User, { as: 'user', foreignKey: 'user_id'});
 
 // 1 - 1 Данные принадлежат отчету
-db.WeatherForecast.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Location.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Defects.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Recommendation.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
-db.Results.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repost_id' });
+db.WeatherForecast.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
+db.Location.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
+db.Defects.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
+db.Recommendation.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
+db.Results.belongsTo(db.Repost, { as: 'repost', foreignKey: 'repostId' });
 
 module.exports = db;

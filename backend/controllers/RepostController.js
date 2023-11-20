@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 
   const repost = {
     id: req.body.id,
-    repostId: req.body.repostId,
+    // repost_id: req.body.repost_id,
   };
 
   Repost.create(repost)

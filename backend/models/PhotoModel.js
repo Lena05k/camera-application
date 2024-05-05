@@ -3,10 +3,19 @@ module.exports = (sequelize, DataTypes) => {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
-            path: DataTypes.STRING,
-            data: DataTypes.BLOB,
             primaryKey: true
         },
-    });
+        path: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        data: {
+            type: DataTypes.BLOB
+        }
+    },
+   {
+       tableName: 'Photos',
+   });
+
     return Photo;
 };

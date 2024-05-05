@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from './bloks/Header';
 import BlockMap from './bloks/BlockMap';
 import BlockWeather from './bloks/BlockWeather';
@@ -20,10 +20,22 @@ const CameraPage = () => {
   const [activeButton, setActiveButton] = useState(null);
   const [showClick, setShowClick] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
 
-  const handleShowCamera = (show) => setShowCamera(show);
+  const handleShowCamera = (show) => {
+    setShowCamera(show);
+  }
   const handleSetActiveButton = (buttonId) => setActiveButton(buttonId);
-  const handleShowDefects = () => setShowDefects(!showDefects);
+  const handleShowDefects = () => {
+    setClickCount(clickCount + 1);
+
+    if (clickCount % 2 === 0) {
+      setShowDefects(!showDefects);
+    } else {
+      setShowDefects(false);
+      setModalShow(true);
+    }
+  };
   const handleClickPhoto = () => setShowClick(!showClick);
   const handleModalShow = (modal) => setModalShow(modal);
 
@@ -36,7 +48,6 @@ const CameraPage = () => {
           {showDefects && <Defects />}
           {showClick && <Exposition  />}
         </div>
-        <ModalCancelNext show={modalShow} onHide={() => setModalShow(false)}/>
         <div className="position-absolute start-0 top-0 ms-5 mt-5">
           <div className="d-flex flex-column mt-5" style={{ height: '800px' }}>
             <BlockWeather />
@@ -65,6 +76,7 @@ const CameraPage = () => {
               />
             </div>
           </div>
+          <ModalCancelNext show={modalShow} onHide={() => setModalShow(false)}/>
         </div>
       </div>
     </div>

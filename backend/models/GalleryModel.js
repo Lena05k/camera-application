@@ -1,8 +1,11 @@
 module.exports = (sequelize, DataTypes) => {
-    const Defects = sequelize.define("Defects", {
-        Numper:{
+    const Gallery = sequelize.define("Gallery", {
+        id: {
             type: DataTypes.INTEGER,
-        },
+            primaryKey: true,
+            autoIncrement: true
+        }
     });
-    return Defects;
+
+    return Gallery;
 };

@@ -14,6 +14,7 @@ const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startS
   };
 
   const handleShowModal = () => setModalShow(true);
+
   const handleOpenPhoto = () => {
     openShootingView(true);
     setActiveButton('camera');
@@ -31,14 +32,18 @@ const BlockShooting = ({ openShootingView, activeButton, setActiveButton, startS
         isActive={activeButton === 'camera'}
       />
       <ButtonVideo
-        openShootingView={handleOpenVideo}
-        isActive={activeButton === 'video'}
+          openShootingView={() => {
+            handleOpenVideo();
+            if (activeButton === 'video') {
+              setModalShow(true);
+            }
+          }}
+          isActive={activeButton === 'video'}
       />
-      {
-        activeButton === 'video' && (
+      {activeButton === 'video' && (
           <ButtonCameraVideo
-            startShooting={handleShowDefects}
-            setModalShow={handleShowModal}
+              startShooting={handleShowDefects}
+              setModalShow={handleShowModal}
           />
         )
       }

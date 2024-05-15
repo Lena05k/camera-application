@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models/webModels');
 const Report = db.Report;
 
 exports.createAndRetrieveFullReport = async (req, res) => {

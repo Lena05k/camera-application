@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const { DataTypes } = require("sequelize");
 const env = process.env.NODE_ENV || 'development';
-const dbConfig = require('../config/db.config.js');
+const dbConfig = require('../../config/db.config.js');
 const db = {};
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {

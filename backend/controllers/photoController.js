@@ -1,5 +1,5 @@
 // controllers/photoController.js
-const db = require('../models');
+const db = require('../models/webModels');
 const Photo = db.Photo;
 
 exports.create = async (req, res) => {

@@ -1,5 +1,5 @@
 // controllers/userController.js
-const db = require('../models');
+const db = require('../models/webModels');
 const User = db.User;
 
 exports.create = async (req, res) => {

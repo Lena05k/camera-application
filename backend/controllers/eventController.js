@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models/webModels');
 const Event = db.Event;
 
 exports.create = async (req, res) => {

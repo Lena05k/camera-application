@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models/webModels');
 const WeatherForecast = db.WeatherForecast;
 
 exports.create = async (req, res) => {
